@@ -1,55 +1,60 @@
-# Prerequisites
-*.d
+# --- CMake / Ninja ---
+build/
+build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+Testing/
+*.ninja
+.ninja_log
+.ninja_deps
+install_manifest.txt
 
-# Object files
+# --- 工具生成产物（GCC/LD 等） ---
 *.o
-*.ko
 *.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
+*.d
 *.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
+*.lib
+*.lst
+*.map
 *.out
-*.app
-*.i*86
-*.x86_64
+
+# --- 固件镜像 ---
+*.elf
 *.hex
+*.bin
+*.dfu
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# 如果你想把 PC 端生成的帧 .bin 不入库（推荐用 Git LFS；见下）
+Image_Encode/*.bin
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# --- VS Code ---
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# --- IDE/系统杂项 ---
+.ide/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Python（你的编码 & 发送脚本） ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+ENV/
+.env
+.env.*
+pip-wheel-metadata/
+
+# --- STM32CubeMX 辅助 ---
+# .ioc 配置文件要提交（保留），不要忽略
+# 生成的固件库一般也提交（Drivers、Core 等），这样别人 clone 就能直接构建
 
 # debug information files
 *.dwo
