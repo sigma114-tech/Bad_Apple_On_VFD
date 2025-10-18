@@ -40,20 +40,6 @@ CMake + Ninja（VS Code/CMake Tools 预设）
 
 Python 3.10+（opencv-python, numpy, pyserial）
 
-目录结构
-.
-├─ Core/                 # CubeMX 生成代码（main、外设 init、ISR 等）
-├─ Drivers/              # HAL/CMSIS
-├─ cmake/                # CMake 构建脚本（含 stm32cubemx）
-├─ scripts/              # Python 工具：编码/发送
-│  ├─ encode_frames.py   # 将 48×256 图像转 1536B/帧（二值化→逐字节）
-│  └─ send_serial.py     # 串口发送帧（支持握手）
-├─ Image/                # 输入图片（badapple0000.jpg ~ ...）
-├─ Image_Encode/         # 输出帧二进制（Image0000.bin ...）
-├─ CMakeLists.txt
-├─ CMakePresets.json
-├─ PROJECT.ioc           # STM32CubeMX 配置
-└─ README.md
 
 快速开始
 1) 准备帧数据（Python）
@@ -121,14 +107,10 @@ SPI TXE 卡住：确认 SPE=1、SSM=1/SSI=1，主模式 MODF 未触发；推荐 
 
 致谢
 
-ST 官方 HAL/CMSIS 与工具链
-
-开源社区的 CMake、VS Code 插件以及示例
-
 上位机帧传输思路参考自 @WanDejun 的 STM32F103C8T6 仓库（BadApple 目录相关讨论与实践）。
 https://github.com/WanDejun/STM32F103C8T6
 
 显示硬件资料参考 OSHWHub – GP1287BI VFD256×50 模块（UNL-200AP）：
 https://oshwhub.com/XACT/gp1287bi-vfd-xian-shi-mu-kuai
 
-经典作品 Bad Apple!! 带来的灵感
+经典作品 Bad Apple!! 带来的灵感与动力
